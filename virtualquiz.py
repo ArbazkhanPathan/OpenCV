@@ -64,16 +64,16 @@ while True:
     if qNo<qTotal:
         mcq = mcqList[qNo]
 
-        img, bbox = cvzone.putTextRect(img,mcq.question,[100,100],2,2,offset=50,border=5,colorB=[0,0,255])
-        img, bbox1 = cvzone.putTextRect(img,mcq.choice1,[100,250],2,2,offset=50,border=5,colorB=[0,0,255])
-        img, bbox2 = cvzone.putTextRect(img,mcq.choice2,[400,250],2,2,offset=50,border=5,colorB=[0,0,255])
-        img, bbox3 = cvzone.putTextRect(img,mcq.choice3,[100,400],2,2,offset=50,border=5,colorB=[0,0,255])
-        img, bbox4 = cvzone.putTextRect(img,mcq.choice4,[400,400],2,2,offset=50,border=5,colorB=[0,0,255])
+        img, bbox = cvzone.putTextRect(img,mcq.question,[100,100],2,2,offset=50,border=3,colorR=[255,255,255],colorT=[97,38,71],colorB=[120,120,120])
+        img, bbox1 = cvzone.putTextRect(img,mcq.choice1,[100,250],2,2,offset=50,border=5,colorR=[255,255,255],colorT=[0,0,0],colorB=[0,0,255])
+        img, bbox2 = cvzone.putTextRect(img,mcq.choice2,[400,250],2,2,offset=50,border=5,colorR=[255,255,255],colorT=[0,0,0],colorB=[0,0,255])
+        img, bbox3 = cvzone.putTextRect(img,mcq.choice3,[100,400],2,2,offset=50,border=5,colorR=[255,255,255],colorT=[0,0,0],colorB=[0,0,255])
+        img, bbox4 = cvzone.putTextRect(img,mcq.choice4,[400,400],2,2,offset=50,border=5,colorR=[255,255,255],colorT=[0,0,0],colorB=[0,0,255])
 
         if hands:
             lmList= hands[0]['lmList']
             cursor = lmList[8]
-            length ,info =detector.findDistance(lmList[8],lmList[12])
+            length ,info =detector.findDistance(lmList[8],lmList[4])
             if length<40:
                 mcq.update(cursor,[bbox1,bbox2,bbox3,bbox4])
                 print(mcq.userAns)
@@ -87,8 +87,8 @@ while True:
             if mcq.answer == mcq.userAns:
                 score +=1
         score = round((score/qTotal)*100)
-        img, _ = cvzone.putTextRect(img, "Quiz Completed", [250, 300], 2, 2, offset=50, border=5)
-        img, _ = cvzone.putTextRect(img, f'Your Score: {score}%', [700, 300], 2, 2, offset=50, border=5)
+        img, _ = cvzone.putTextRect(img, "Quiz Completed", [250, 300], 2, 2, offset=50, border=5,colorR=[255,255,255],colorT=[97,38,71],colorB=[120,120,120])
+        img, _ = cvzone.putTextRect(img, f'Your Score: {score}%', [700, 300], 2, 2, offset=50, border=5,colorR=[255,255,255],colorT=[97,38,71],colorB=[120,120,120])
 
     # Draw progress bar
     barValue = 150 + (950//qTotal)*qNo
