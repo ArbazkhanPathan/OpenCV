@@ -1,0 +1,42 @@
+turn on the cam
+read the csv file
+create class for MCQ
+        to display mcq question and ans
+
+create object for each question
+
+detecting the hands
+put detector confidense to 0.8
+
+
+putting the questions on the web cam
+
+
+finding the finger
+finding the distance between index and middle finger to click
+check if we have click on an answer
+
+
+
+
+
+
+check wheather it is clicked on the choices
+
+giving green color after clicking
+
+
+saving the answers
+
+
+
+changing the question after clicking
+
+
+drawing the progress bar
+Adding the percentage
+
+
+checking the answers
+
+printing the percentage of correct answer
